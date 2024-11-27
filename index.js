@@ -29,12 +29,14 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    // const fruitCollection = client.db('fruitStoreDB').collection('fruits')
+     const fruitCollection = client.db('fruitStoreDB').collection('fruits')
 
     // create
    app.post('/fruits',async(req,res)=>{
     const newFruit = req.body
     console.log(newFruit);
+    const result = await fruitCollection.insertOne(newFruit)
+    res.send(result)
    })
 
 
