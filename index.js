@@ -39,7 +39,12 @@ async function run() {
     res.send(result)
    })
 
-
+//   read
+   app.get('/fruits',async(req,res)=>{
+    const cursor = fruitCollection.find()
+    const result = await cursor.toArray()
+    res.send(result)
+   })
 
 
 
